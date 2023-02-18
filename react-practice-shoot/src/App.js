@@ -1,10 +1,14 @@
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
+  const [users, setUsers] = useState([]);
 
-  fetch('https://jsonplaceholder.typicode.com/users') // Will give you promise
-  .then((response) => response.json()) // Will give you promise , response.json() will give body as promise , only response will give you body , headers , status etc...
-  .then((body)=> console.log(body));
+  fetch("https://jsonplaceholder.typicode.com/users") // Will give you promise
+      .then((response) => response.json()) // Will give you promise , response.json() will give body as promise , only response will give you body , headers , status etc...
+      .then((users) => setUsers(users));
+
+  console.log("users value", users);
 
   return (
     // JSX code START

@@ -1,28 +1,19 @@
-import { useEffect, useState } from "react";
+import {  Route, Routes } from "react-router-dom";
+import AddBookmark from "./AddBookmark";
 import "./App.css";
+import Home from "./Home";
 
 function App() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  console.log("users value", users);
-
   return (
     // JSX code START
-    <div>
-      <h1>Let's Learn React JS</h1>
-    </div>
+    <>
+      <Routes>
+        <Route path="" element={<Home />} />
+        <Route path="add-bookmark" element={<AddBookmark />} />
+      </Routes>
+    </>
     // JSX code END
   );
-
-  function fetchUsers() {
-    fetch("https://jsonplaceholder.typicode.com/users") // Will give you promise
-      .then((response) => response.json()) // Will give you promise , response.json() will give body as promise , only response will give you body , headers , status etc...
-      .then((users) => setUsers(users));
-  }
 }
 
 export default App;

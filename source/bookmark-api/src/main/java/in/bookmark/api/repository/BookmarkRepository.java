@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import in.bookmark.api.entity.BookmarkEntity;
 
-public interface BookmarkRepository extends JpaRepository<BookmarkEntity , Integer> {
+public interface BookmarkRepository extends JpaRepository<BookmarkEntity , Integer> , BookmarkRepositoryCustom {
     
 }

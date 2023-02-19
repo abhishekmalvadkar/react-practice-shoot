@@ -16,7 +16,6 @@ public class BookmarkResponse {
     private Integer bookmarkId;
     private String bookmarkUrl;
     private String bookmarkTitle;
-    private LocalDateTime createdDateTime;
-    private LocalDateTime updatedDateTime;
+    private String createdDateTimeStr;
 
 }

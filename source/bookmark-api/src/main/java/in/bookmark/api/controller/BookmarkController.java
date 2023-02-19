@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import in.bookmark.api.request.BookmarkCreateRequest;
+import in.bookmark.api.request.BookmarkCriteriaRequest;
 import in.bookmark.api.response.ApiResponse;
 import in.bookmark.api.response.BookmarkResponse;
+import in.bookmark.api.response.PagedResponse;
 import in.bookmark.api.service.BookmarkService;
 import lombok.RequiredArgsConstructor;
 
@@ -30,11 +32,11 @@ public class BookmarkController {
         return "UP";
     }
 
-    @GetMapping("/bookmarks")
-    public ApiResponse<List<BookmarkResponse>> getBookmarks(){
-        List<BookmarkResponse> bookmarks = this.bookmarkService.getBookmarks();
-        ApiResponse<List<BookmarkResponse>> apiResponse = new ApiResponse<>();
-        apiResponse.setData(bookmarks);
+    @PostMapping("/bookmarks/criteria")
+    public ApiResponse<PagedResponse<BookmarkResponse>> getBookmarks(@RequestBody BookmarkCriteriaRequest criteria){
+        PagedResponse<BookmarkResponse> pagedResponse = this.bookmarkService.getBookmarks(criteria);
+        ApiResponse<PagedResponse<BookmarkResponse>> apiResponse = new ApiResponse<>();
+        apiResponse.setData(pagedResponse);
         apiResponse.setStatus(HttpStatus.OK.value());
         return apiResponse;
     }

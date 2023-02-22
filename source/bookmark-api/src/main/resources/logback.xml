@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 	
-	<property name="BM_CONFIG_DIR" value="R://bookmark-api_v2"></property>
+	<property name="BM_CONFIG_DIR" value="R://bookmark-api_v3"></property>
 	<property name="LOG_FILE_NAME" value="bm.log"></property>
 
 	<appender name="Console"
@@ -28,12 +28,12 @@
 		</rollingPolicy>
 	</appender>
 	
-	<logger name="in.bookmark.api" level="TRACE"
+	<logger name="in.bookmark.api" level="info"
 		additivity="false">
 		<appender-ref ref="RollingFile" />
 	</logger>
 
-	<root level="ERROR">
+	<root level="error">
 		<appender-ref ref="Console" />
 		<appender-ref ref="RollingFile" />
 	</root>
